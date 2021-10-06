@@ -6,12 +6,11 @@ FILENAME="paper-${VERSION}-${BUILD}.jar"
 URL="https://papermc.io/api/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
 
 shutdown_handler() {
-  rcon-cli --config /data/.rcon-cli.yaml say "Shutdown in 10 seconds!"
-
-  sleep 10
-
+  rcon-cli --config /data/.rcon-cli.yaml say "Shutting down server!"
   rcon-cli --config /data/.rcon-cli.yaml save-all
   rcon-cli --config /data/.rcon-cli.yaml stop
+
+  sleep 2
 }
 
 trap 'shutdown_handler' SIGTERM
