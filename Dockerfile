@@ -24,6 +24,8 @@ RUN mkdir /tmp/rcon-cli \
 
 USER minecraft
 
+ENV RCON_PORT=25575
+
 ADD entrypoint.sh /
 
 EXPOSE 25565
