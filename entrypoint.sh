@@ -5,6 +5,16 @@ BUILD="103"
 FILENAME="paper-${VERSION}-${BUILD}.jar"
 URL="https://papermc.io/api/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
 
+set_server_prop() {
+  local prop=$1
+  local envName=$2
+
+  if [ -v $envName ]; then
+    local value="${!envName}"
+    sed -i "/^${prop}\s*=/ c ${prop}=${value//\\/\\\\}" /data/server.properties
+  fi
+}
+
 shutdown_handler() {
   rcon-cli --config /data/.rcon-cli.yaml say "Shutting down server!"
   rcon-cli --config /data/.rcon-cli.yaml save-all
@@ -23,6 +33,8 @@ if [ ! -f "server.properties" ]; then
   cp /ops.json .
   cp /whitelist.json .
 fi
+
+set_server_prop "rcon.password" RCON_PASSWORD
 
 if [ ! -f "${FILENAME}" ]; then
   echo "downloading ${FILENAME}..."
