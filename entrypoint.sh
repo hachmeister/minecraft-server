@@ -32,6 +32,7 @@ if [ ! -f "server.properties" ]; then
   cp /eula.txt .
   cp /ops.json .
   cp /whitelist.json .
+  cp /server-icon.png .
 fi
 
 set_server_prop "rcon.password" RCON_PASSWORD
