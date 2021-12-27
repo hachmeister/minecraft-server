@@ -5,6 +5,14 @@ BUILD="103"
 FILENAME="paper-${VERSION}-${BUILD}.jar"
 URL="https://papermc.io/api/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
 
+copy_file() {
+  local filename=$1
+
+  if [ ! -f "/data/$filename" ]; then
+    cp "/$filename" "/data/"
+  fi
+}
+
 set_server_prop() {
   local prop=$1
   local envName=$2
@@ -25,17 +33,15 @@ shutdown_handler() {
 
 trap 'shutdown_handler' SIGTERM
 
-cd /data
-
-if [ ! -f "server.properties" ]; then
-  cp /server.properties .
-  cp /eula.txt .
-  cp /ops.json .
-  cp /whitelist.json .
-  cp /server-icon.png .
-fi
+copy_file "server.properties"
+copy_file "eula.txt"
+copy_file "ops.json"
+copy_file "whitelist.json"
+copy_file "server-icon.png"
 
 set_server_prop "rcon.password" RCON_PASSWORD
+
+cd /data
 
 if [ ! -f "${FILENAME}" ]; then
   echo "downloading ${FILENAME}..."
