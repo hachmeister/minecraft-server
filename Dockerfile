@@ -13,6 +13,7 @@ ADD whitelist.json /
 ADD server-icon.png /
 ADD config /config
 ADD mods /mods
+ADD dynmap /dynmap
 
 RUN mkdir -p /data
 RUN chown minecraft /data
