@@ -1,7 +1,7 @@
 FROM openjdk:17-slim
 
 RUN apt-get update \
-  && apt-get install -y wget \
+  && apt-get install -y jq rsync unzip wget \
   && apt-get clean
 
 RUN useradd --create-home --shell /bin/bash minecraft
