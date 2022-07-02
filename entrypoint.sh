@@ -57,6 +57,11 @@ if [[ "${MINECRAFT_VERSION}" != "${MINECRAFT_CURRENT_VERSION}" ]] ; then
   rm installer.jar
 fi
 
+echo "Installing mods..."
+mkdir -p config mods
+rsync -a --delete /config/ config
+rsync -a --delete /mods/ mods
+
 echo "starting minecraft with ${FILENAME}..."
 JAVA_OPTS="-Xms2G -Xmx2G"
 java $JAVA_OPTS -jar fabric-server-launch.jar --nogui &
