@@ -34,7 +34,7 @@ worlds:
         perspective: iso_S_90_medres
         shader: stdtexture
         lighting: shadows
-  - name: world_nether
+  - name: DIM-1
     title: Nether
     image-format: jpg
     maps:
@@ -62,7 +62,7 @@ worlds:
         perspective: iso_S_90_medres
         shader: stdtexture
         lighting: default
-  - name: world_the_end
+  - name: DIM1
     title: The End
     image-format: jpg
     fullrenderlocations:
