@@ -41,7 +41,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: nether_se
         title: Nether (Südost)
-        icon: images/block_world_surface.png
+        icon: images/block_nether_surface.png
         prefix: nether_se
         perspective: iso_SE_30_medres
         shader: stdtexture
@@ -49,7 +49,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: nether_nw
         title: Nether (Nordwest)
-        icon: images/block_world_surface.png
+        icon: images/block_nether_surface.png
         prefix: nether_nw
         perspective: iso_NW_30_medres
         shader: stdtexture
@@ -57,7 +57,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: flat
         title: Nether (Flach)
-        icon: images/block_world_flat.png
+        icon: images/block_nether_flat.png
         prefix: flat
         perspective: iso_S_90_medres
         shader: stdtexture
@@ -76,7 +76,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: the_end_se
         title: The End (Südost)
-        icon: images/block_world_surface.png
+        icon: images/block_the_end_surface.png
         prefix: the_end_se
         perspective: iso_SE_30_medres
         shader: stdtexture
@@ -84,7 +84,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: the_end_nw
         title: The End (Nordwest)
-        icon: images/block_world_surface.png
+        icon: images/block_the_end_surface.png
         prefix: the_end_nw
         perspective: iso_NW_30_medres
         shader: stdtexture
@@ -92,7 +92,7 @@ worlds:
       - class: org.dynmap.hdmap.HDMap
         name: flat
         title: The End (Flach)
-        icon: images/block_world_flat.png
+        icon: images/block_the_end_flat.png
         prefix: flat
         perspective: iso_S_90_medres
         shader: stdtexture
