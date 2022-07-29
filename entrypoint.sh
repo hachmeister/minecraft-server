@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MINECRAFT_VERSION="1.18.2"
+MINECRAFT_VERSION="1.19"
 FABRIC_INSTALLER_VERSION="0.11.0"
 FABRIC_INSTALLER_URL="https://maven.fabricmc.net/net/fabricmc/fabric-installer/${FABRIC_INSTALLER_VERSION}/fabric-installer-${FABRIC_INSTALLER_VERSION}.jar"
 
@@ -53,7 +53,7 @@ if [[ "${MINECRAFT_VERSION}" != "${MINECRAFT_CURRENT_VERSION}" ]] ; then
   wget --quiet --output-document="installer.jar" "${FABRIC_INSTALLER_URL}"
   
   echo "Installing Fabric server for Minecraft ${MINECRAFT_VERSION}..."
-  java -jar installer.jar server -mcversion 1.18.2 -downloadMinecraft
+  java -jar installer.jar server -mcversion ${MINECRAFT_VERSION} -downloadMinecraft
   rm installer.jar
 fi
 
@@ -64,7 +64,7 @@ rsync -a --delete /mods/ mods
 rsync -a /dynmap/configuration.txt dynmap/
 rsync -a /dynmap/worlds.txt dynmap/
 
-echo "starting minecraft with ${FILENAME}..."
+echo "starting minecraft ${MINECRAFT_VERSION}..."
 JAVA_OPTS="-Xms2G -Xmx2G"
 java $JAVA_OPTS -jar fabric-server-launch.jar --nogui &
 pid="$!"
