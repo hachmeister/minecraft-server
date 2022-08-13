@@ -59,8 +59,11 @@ fi
 
 echo "Installing mods..."
 mkdir -p config mods dynmap
-rsync -a --delete /config/ config
-rsync -a --delete /mods/ mods
+# TODO: copy specific config files
+# rsync -a --delete /config/ config
+# rsync -a --delete /mods/ mods
+rm mods/*.jar
+cp /mods/*.jar mods
 rsync -a /dynmap/configuration.txt dynmap/
 rsync -a /dynmap/worlds.txt dynmap/
 
