@@ -47,10 +47,12 @@ storage:
   #aws_access_key_id: "<aws-access-key-id>"
   #aws_secret_access_key: "<aws-secret-access-key>"  
   #prefix: ""
+  #override_endpoint: ""
 
 components:
   - class: org.dynmap.ClientConfigurationComponent
   
+  # Remember to change the following class to org.dynmap.JsonFileClientUpdateComponent when using an external web server.
   - class: org.dynmap.InternalClientUpdateComponent
     sendhealth: true
     sendposition: true
@@ -79,6 +81,8 @@ components:
   #  hideifundercover: 14
   #  # (Optional) if true, players that are crouching/sneaking will be hidden 
     hideifsneaking: false
+    # optional, if true, players that are in spectator mode will be hidden
+    hideifspectator: false
     # If true, player positions/status is protected (login with ID with dynmap.playermarkers.seeall permission required for info other than self)
     protected-player-info: false
     # If true, hide players with invisibility potion effects active
@@ -332,6 +336,9 @@ update-webpath-files: true
 # The path were the /dynmapexp command exports OBJ ZIP files
 exportpath: export
 
+# The path where files can be imported for /dmarker commands
+importpath: import
+
 # The network-interface the webserver will bind to (0.0.0.0 for all interfaces, 127.0.0.1 for only local access).
 # If not set, uses same setting as server in server.properties (or 0.0.0.0 if not specified)
 #webserver-bindaddress: 0.0.0.0
@@ -476,9 +483,6 @@ soft-ref-cache: true
 # Published public URL for Dynmap server (allows users to use 'dynmap url' command to get public URL usable to access server
 # If not set, 'dynmap url' will not return anything.  URL should be fully qualified (e.g. https://mc.westeroscraft.com/)
 #publicURL: http://my.greatserver.com/dynmap
-
-# Send this message if the player does not have permission to use the command
-noPermissionMsg: "You don't have permission to use this command!"
 
 # Set to true to enable verbose startup messages - can help with debugging map configuration problems
 # Set to false for a much quieter startup log
