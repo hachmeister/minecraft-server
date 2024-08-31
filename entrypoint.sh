@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MINECRAFT_VERSION="1.21"
+MINECRAFT_VERSION="1.20.1"
 FABRIC_INSTALLER_VERSION="1.0.1"
 FABRIC_INSTALLER_URL="https://maven.fabricmc.net/net/fabricmc/fabric-installer/${FABRIC_INSTALLER_VERSION}/fabric-installer-${FABRIC_INSTALLER_VERSION}.jar"
 
