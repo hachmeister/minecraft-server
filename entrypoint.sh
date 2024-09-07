@@ -68,7 +68,7 @@ rsync -a /dynmap/configuration.txt dynmap/
 rsync -a /dynmap/worlds.txt dynmap/
 
 echo "starting minecraft ${MINECRAFT_VERSION}..."
-JAVA_OPTS="-Xms2G -Xmx2G"
+JAVA_OPTS="-Xms3G -Xmx3G"
 java $JAVA_OPTS -jar fabric-server-launch.jar --nogui &
 pid="$!"
 
