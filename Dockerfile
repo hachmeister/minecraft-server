@@ -1,4 +1,4 @@
-FROM openjdk:21-slim
+FROM openjdk:17-slim
 
 RUN apt-get update \
   && apt-get install -y htop jq rsync unzip wget \
