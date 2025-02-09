@@ -1,9 +1,9 @@
 #!/bin/bash
 
-VERSION="1.18.2"
-BUILD="347"
+VERSION="1.21.4"
+BUILD="144"
 FILENAME="paper-${VERSION}-${BUILD}.jar"
-URL="https://papermc.io/api/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
+URL="https://api.papermc.io/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
 
 copy_file() {
   local filename=$1
