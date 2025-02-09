@@ -11,6 +11,7 @@ ADD eula.txt /
 ADD ops.json /
 ADD whitelist.json /
 ADD server-icon.png /
+ADD plugins /plugins
 
 RUN mkdir -p /data
 RUN chown minecraft /data

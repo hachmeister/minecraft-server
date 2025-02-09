@@ -48,6 +48,11 @@ if [ ! -f "${FILENAME}" ]; then
   wget --quiet --output-document="${FILENAME}" "${URL}"
 fi
 
+echo "installing mods..."
+mkdir -p plugins
+rm plugins/*.jar
+cp /plugins/*.jar plugins
+
 echo "starting minecraft with ${FILENAME}..."
 JAVA_OPTS="-Xms2G -Xmx2G"
 java $JAVA_OPTS -jar "${FILENAME}" --nogui &
