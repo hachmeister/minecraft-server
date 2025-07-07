@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VERSION="1.21.4"
-BUILD="144"
+VERSION="1.21.7"
+BUILD="17"
 FILENAME="paper-${VERSION}-${BUILD}.jar"
 URL="https://api.papermc.io/v2/projects/paper/versions/${VERSION}/builds/${BUILD}/downloads/${FILENAME}"
 
