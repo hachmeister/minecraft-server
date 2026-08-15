@@ -1,10 +1,8 @@
-FROM openjdk:21-slim
+FROM eclipse-temurin:25
 
 RUN apt-get update \
-  && apt-get install -y wget \
+  && apt-get install -y wget jq \
   && apt-get clean
-
-RUN useradd --create-home --shell /bin/bash minecraft
 
 ADD server.properties /
 ADD eula.txt /
@@ -14,17 +12,17 @@ ADD server-icon.png /
 ADD plugins /plugins
 
 RUN mkdir -p /data
-RUN chown minecraft /data
+RUN chown ubuntu /data
 
 RUN mkdir /tmp/rcon-cli \
   && cd /tmp/rcon-cli \
-  && wget -q https://github.com/itzg/rcon-cli/releases/download/1.6.10/rcon-cli_1.6.10_linux_amd64.tar.gz \
-  && tar -xf rcon-cli_1.6.10_linux_amd64.tar.gz \
+  && wget -q https://github.com/itzg/rcon-cli/releases/download/1.7.6/rcon-cli_1.7.6_linux_amd64.tar.gz \
+  && tar -xf rcon-cli_1.7.6_linux_amd64.tar.gz \
   && cp rcon-cli /usr/local/bin \
   && cd / \
   && rm -rf /tmp/rcon-cli
 
-USER minecraft
+USER ubuntu
 
 ENV RCON_PORT=25575
 
